@@ -1,13 +1,15 @@
 class Game
-
-  attr_reader :player_1, :player_2
-
+  attr_reader :players, :flipper
   def initialize(player_1, player_2)
-    @player_1 = player_1
-    @player_2 = player_2
+    # @player_1 = player_1
+    # @player_2 = player_2
+    # @adversary = @player_2
+    @players = [player_1, player_2]
+    @flipper = @players.dup
   end
 
-  def attack(player_2)
-    @player_2.receive_damage
+  def attack
+    @flipper.last.receive_damage
+    @flipper.reverse!
   end
 end

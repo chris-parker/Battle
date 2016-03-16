@@ -1,6 +1,7 @@
 "<%= @player_1 %> vs. <%= @player_2 %>"
-"<%= @player_1 %> has 60/60 HP"
-'<%= @player_2 %> has <%= $game.player_2.hit_points %>/60 HP!'
+"<%= @player_1 %> has <%= $game.players.first.hit_points %>/60 HP!'
+'<%= @player_2 %> has <%= $game.players.last.hit_points %>/60 HP!'
+"<%= $game.flipper.first.name %>'s turn"
 <form action = '/attack' method = 'get' >
   <input type = 'submit' value = 'Attack!' >
 </form>
