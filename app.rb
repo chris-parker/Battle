@@ -40,10 +40,12 @@ class Battle < Sinatra::Base
   end
 
   get '/p1dead' do
+    @player_1 = @game.players.first.name
     erb :p1dead
   end
 
   get '/p2dead' do
+    @player_2 = @game.players.last.name
     erb :p2dead
   end
 
