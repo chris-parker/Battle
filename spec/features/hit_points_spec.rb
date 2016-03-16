@@ -11,6 +11,7 @@ feature 'Reducing hit points' do
   scenario 'Returns player 2s reduced hit points' do
     sign_in_and_play
     click_button "Attack!"
+    click_button "OK"
     expect(page).to have_content('Murilo has 50/60 HP')
   end
 end

@@ -1,2 +1,4 @@
-'You have attacked <%= @player_2 %>!'
-'<%= @player_2 %> has <%= $player_2.attacked %>/60 HP!'
+'You have attacked <%= @player_2.name %>!'
+<form action "/attack" method="post">
+  <input type="submit" value="OK" >
+</form>
