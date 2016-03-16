@@ -9,8 +9,13 @@ feature 'attacking player 2' do
 
   scenario 'switches turn' do
     sign_in_and_play
-    click_button "Attack!"
-    click_button 'OK'
+    complete_attack
     expect(page).to have_content "Murilo's turn"
+  end
+
+  scenario 'kills a player' do
+    sign_in_and_play
+    11.times {complete_attack}
+    expect(page).to have_content "Murilo is dead! :("
   end
 end

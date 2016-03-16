@@ -15,6 +15,8 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
+    redirect '/p1dead' if $game.players.first.dead?
+    redirect '/p2dead' if $game.players.last.dead?
     @player_1 = $game.players.first.name
     @player_2 = $game.players.last.name
     erb :play
@@ -29,6 +31,14 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     redirect '/play'
+  end
+
+  get '/p1dead' do
+    erb :p1dead
+  end
+
+  get '/p2dead' do
+    erb :p2dead
   end
 
   # start the server if ruby file executed directly
