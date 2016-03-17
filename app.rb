@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'player'
+require './lib/player'
 
 class Battle < Sinatra::Base
 
@@ -20,7 +20,10 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    "You attacked the opponent."
+    @p1_name = $player_1_object.name
+    @p2_name = $player_2_object.name
+    $player_2_object.reduce_hp
+    erb(:attack)
   end
 
   # start the server if ruby file executed directly
