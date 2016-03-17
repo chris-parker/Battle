@@ -7,11 +7,9 @@ class Game
     @player_swap = @players.dup
   end
 
-
   def attack
     @player_swap.last.reduce_hp
     @player_swap.reverse!
   end
-
 
 end

@@ -18,6 +18,7 @@ class Battle < Sinatra::Base
   get '/play' do
     @p1_name = $game.players.first.name
     @p2_name = $game.players.last.name
+    redirect '/victory' if $game.players.last.dead?
     erb(:home)
   end
 
@@ -26,6 +27,10 @@ class Battle < Sinatra::Base
     @p2_name = $game.players.last.name
     $game.attack
     erb(:attack)
+  end
+
+  get '/victory' do
+    erb(:victory)
   end
 
   # start the server if ruby file executed directly

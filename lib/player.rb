@@ -18,4 +18,9 @@ class Player
   def reduce_hp
     @hp -= 20
   end
+
+  def dead?
+    @hp == 0
+  end
+
 end
