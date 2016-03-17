@@ -1,4 +1,4 @@
 "You attacked the opponent."
 
-<div><%= @p1_name %>: <%= $player_1_object.hp_check %>/100 HP </div>
-<div><%= @p2_name %>: <%= $player_2_object.hp_check %>/100 HP </div>
+<div><%= @p1_name %>: <%= $game.players.first.hp_check %>/100 HP </div>
+<div><%= @p2_name %>: <%= $game.players.last.hp_check %>/100 HP </div>
