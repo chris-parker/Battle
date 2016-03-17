@@ -18,13 +18,13 @@ class Battle < Sinatra::Base
   get '/play' do
     @p1_name = $game.players.first.name
     @p2_name = $game.players.last.name
-    erb(:greet_player)
+    erb(:home)
   end
 
   get '/attack' do
     @p1_name = $game.players.first.name
     @p2_name = $game.players.last.name
-    $game.attack($game.players.last)
+    $game.attack
     erb(:attack)
   end
 

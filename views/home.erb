@@ -1,0 +1,10 @@
+<div> Welcome to BATTLE.</div>
+<div> <%= $game.player_swap.first.name %>, your turn.</div>
+<div> </div>
+<div> </div>
+<div><%= @p1_name %>: <%= $game.players.first.hp_check %>/100 HP </div>
+<div><%= @p2_name %>: <%= $game.players.last.hp_check %>/100 HP</div>
+
+<form action='/attack' method='get'>
+  <input type='submit' value='Attack!' />
+</form>

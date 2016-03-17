@@ -2,3 +2,7 @@
 
 <div><%= @p1_name %>: <%= $game.players.first.hp_check %>/100 HP </div>
 <div><%= @p2_name %>: <%= $game.players.last.hp_check %>/100 HP </div>
+
+<form action='/play' method='get'>
+  <input type='submit' value='Return' />
+</form>
