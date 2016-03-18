@@ -16,7 +16,7 @@ RSpec.feature 'attacking opponent' do
     sign_in_and_play
     perform_attack
     click_button "Return"
-    expect(page).to have_content "Welcome to BATTLE."
+    expect(page).to have_content "BATTLE!"
     expect(page).to have_content "player_two, your turn."
   end
 

@@ -8,6 +8,10 @@ class Battle < Sinatra::Base
     erb(:index)
   end
 
+  before do
+    @game = Game
+  end
+
   post '/names' do
     @player_1 = Player.new(params[:player_1])
     @player_2 = Player.new(params[:player_2])
@@ -16,19 +20,16 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @game = Game
     redirect '/victory' if @game.player_2.dead?
     erb(:home)
   end
 
   get '/attack' do
-    @game = Game
     @game.attack
     erb(:attack)
   end
 
   get '/victory' do
-    @game = Game
     erb(:victory)
   end
 
