@@ -6,10 +6,10 @@ def sign_in_and_play
 end
 
 def perform_attack
-  click_button "Attack!"
+  click_button "Heavy Attack!"
 end
 
 def attack_and_return
-  click_button "Attack!"
+  click_button "Heavy Attack!"
   click_button "Return"
 end

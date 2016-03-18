@@ -25,7 +25,8 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    @game.attack
+    @strength = params[:strength]
+    @game.attack(@strength)
     erb(:attack)
   end
 

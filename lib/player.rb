@@ -15,8 +15,9 @@ class Player
     @hp
   end
 
-  def reduce_hp
-    damage = Kernel.rand(1..20)
+  def attack(strength)
+    damage = Kernel.rand(1..20) if strength == "heavy"
+    damage = Kernel.rand(3..10) if strength == "light"
     damage >= @hp ? @hp = 0 : @hp -= damage
   end
 

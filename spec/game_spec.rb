@@ -16,14 +16,14 @@ describe Game do
 
   context "attacking" do
     it "calls reduce_hp on an attacked player" do
-      expect(player_2).to receive(:reduce_hp)
-      Game.attack
+      expect(player_2).to receive(:attack).with("heavy")
+      Game.attack("heavy")
     end
 
     it 'switches players array to put current player last' do
-      expect(player_2).to receive(:reduce_hp)
-      allow(player_1).to receive(:reduce_hp)
-      2.times { Game.attack }
+      expect(player_2).to receive(:attack).with("heavy")
+      allow(player_1).to receive(:attack).with("heavy")
+      2.times { Game.attack("heavy") }
     end
 
   end

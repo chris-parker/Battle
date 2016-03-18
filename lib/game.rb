@@ -1,9 +1,9 @@
 class Game
 
-  def self.attack
-    @players.last.reduce_hp
+  def self.attack(strength)
+    @players.last.attack(strength)
     @players.reverse!
-    self.attack if self.single_player?
+    self.computer_attack
   end
 
   def self.start(player_1, player_2)
@@ -32,8 +32,9 @@ class Game
     @player_1.dead? || @player_2.dead?
   end
 
-  def self.single_player?
-    @players.first.name == "Computer"
+  def self.computer_attack
+    strength = ["light", "heavy"].sample
+    self.attack(strength) if @players.first.name == "Computer"
   end
 
 end
