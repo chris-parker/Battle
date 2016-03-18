@@ -2,8 +2,8 @@ class Player
 
   attr_reader :hp
 
-  def initialize(name)
-    @name = name
+  def initialize(name="Computer")
+    assign name
     @hp = 100
   end
 
@@ -16,11 +16,18 @@ class Player
   end
 
   def reduce_hp
-    @hp -= Kernel.rand(1..20)
+    damage = Kernel.rand(1..20)
+    damage >= @hp ? @hp = 0 : @hp -= damage
   end
 
   def dead?
     @hp <= 0
+  end
+
+  private
+
+  def assign(name)
+    name == "" ? @name = "Computer" : @name = name
   end
 
 end

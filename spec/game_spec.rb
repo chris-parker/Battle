@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
 
-  let(:player_1) { double :player_1 }
-  let(:player_2) { double :player_2 }
+  let(:player_1) { double :player_1, name: "player_1" }
+  let(:player_2) { double :player_2, name: "player_2" }
 
   before(:each) do
     Game.start(player_1, player_2)

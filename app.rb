@@ -24,7 +24,7 @@ class Battle < Sinatra::Base
     erb(:home)
   end
 
-  get '/attack' do
+  post '/attack' do
     @game.attack
     erb(:attack)
   end
