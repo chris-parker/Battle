@@ -9,7 +9,7 @@ RSpec.feature 'attacking opponent' do
   scenario 'attacking P2 reduced their HP' do
     sign_in_and_play
     perform_attack
-    expect(page).to have_content "80/100 HP"
+    expect(page).not_to have_content "player_two: 100/100 HP"
   end
 
   scenario 'attack acknowledged button switches player' do
@@ -22,8 +22,8 @@ RSpec.feature 'attacking opponent' do
 
   scenario 'a player can die' do
     sign_in_and_play
-    9.times { attack_and_return }
-    expect(page).to have_content "player_two is dead :("
+    visit '/victory'
+    expect(page).to have_content "player_one is dead :("
   end
 
 end

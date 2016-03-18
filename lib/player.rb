@@ -16,11 +16,11 @@ class Player
   end
 
   def reduce_hp
-    @hp -= 20
+    @hp -= Kernel.rand(1..20)
   end
 
   def dead?
-    @hp == 0
+    @hp <= 0
   end
 
 end
