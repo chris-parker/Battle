@@ -1,8 +1,8 @@
 class Game
 
   def self.attack(strength)
-    @players.last.attack(strength)
-    @players.reverse!
+    @players.last.attack(strength) unless @players.first.paralyzed?
+    self.switch_player
     self.computer_attack
   end
 
@@ -33,8 +33,12 @@ class Game
   end
 
   def self.computer_attack
-    strength = ["light", "heavy"].sample
+    strength = ["light", "heavy", "paralyze"].sample
     self.attack(strength) if @players.first.name == "Computer"
+  end
+
+  def self.switch_player
+    @players.reverse!
   end
 
 end

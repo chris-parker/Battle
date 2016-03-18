@@ -3,6 +3,9 @@
 
 <div>
   <h1><%= @game.players.last.name %> attacked <%= @game.players.first.name %>!</h1>
+  <% if @game.players.first.paralyzed? %>
+    <h1><%= @game.players.first.name %> is now paralyzed!</h1>
+  <% end %>
 </div>
 <div>
   <h1><%= player_1.name %>: <%= player_1.hp_check %>/100 HP</h1>
@@ -10,7 +13,7 @@
 <div>
   <h1><%= player_2.name %>: <%= player_2.hp_check %>/100 HP</h1>
 </div>
-
-<form action='/play' method='get'>
-  <input type='submit' value='Return' />
+<%= "<form action='/paralyzed' method='get'>" if @game.players.first.paralyzed? %>
+<%= "<form action='/play' method='get'>" unless @game.players.first.paralyzed? %>
+  <input type='submit' value='Return'/>
 </form>

@@ -1,0 +1,9 @@
+<% player_1 = @game.player_1 %>
+<% player_2 = @game.player_2 %>
+<div>
+  <h1><%= @game.players.last.name %>, you have been paralyzed!</h1>
+</div>
+
+<form action='/play' method='get'>
+  <input type='submit' value='Miss a turn!'/>
+</form>

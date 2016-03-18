@@ -34,6 +34,11 @@ class Battle < Sinatra::Base
     erb(:victory)
   end
 
+  get '/paralyzed' do
+    @game.switch_player
+    erb(:paralyzed)
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

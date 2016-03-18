@@ -1,6 +1,5 @@
 require 'player'
 
-
 describe Player do
 
   subject(:test_player) { described_class.new('test_player') }
@@ -12,6 +11,14 @@ describe Player do
       expect(test_player.hp_check).to eq(test_player.hp)
     end
 
+  end
+
+  describe '#paralyze' do
+    it 'has a chance of paralyzing a player' do
+      allow(Kernel).to receive(:rand).and_return(2)
+      test_player.attack("paralyze")
+      expect(test_player.paralyzed?).to be true
+    end
   end
 
   describe '#attack' do
