@@ -2,25 +2,28 @@ require 'game'
 
 describe Game do
 
-  subject(:new_game) { described_class.new(player1, player2) }
-  let(:player1) { double :player1 }
-  let(:player2) { double :player2 }
+  let(:player_1) { double :player_1 }
+  let(:player_2) { double :player_2 }
+
+  before(:each) do
+    Game.start(player_1, player_2)
+  end
 
   it "starts a game with two players" do
-    expect(subject.players).to eq [player1, player2]
+    expect(Game.player_1).to eq player_1
+    expect(Game.player_2).to eq player_2
   end
 
   context "attacking" do
     it "calls reduce_hp on an attacked player" do
-      allow(player2).to receive(:reduce_hp)
-      subject.attack
-      expect(player2).to have_received(:reduce_hp)
+      expect(player_2).to receive(:reduce_hp)
+      Game.attack
     end
 
     it 'switches players array to put current player last' do
-      allow(player2).to receive(:reduce_hp)
-      subject.attack
-      expect(subject.player_swap.last).to eq(player1)
+      expect(player_2).to receive(:reduce_hp)
+      allow(player_1).to receive(:reduce_hp)
+      2.times { Game.attack }
     end
 
   end

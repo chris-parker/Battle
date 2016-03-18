@@ -1,15 +1,26 @@
 class Game
 
-  attr_reader :players, :player_swap
-
-  def initialize(player1, player2)
-    @players = [player1, player2]
-    @player_swap = @players.dup
+  def self.attack
+    @players.last.reduce_hp
+    @players.reverse!
   end
 
-  def attack
-    @player_swap.last.reduce_hp
-    @player_swap.reverse!
+  def self.start(player_1, player_2)
+    @player_1 = player_1
+    @player_2 = player_2
+    @players = [player_1, player_2]
+  end
+
+  def self.player_1
+    @player_1
+  end
+
+  def self.player_2
+    @player_2
+  end
+
+  def self.players
+    @players
   end
 
 end

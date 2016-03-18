@@ -3,7 +3,7 @@ RSpec.feature 'attacking opponent' do
   scenario 'pressing button to attack player 1' do
     sign_in_and_play
     perform_attack
-    expect(page).to have_content "You attacked the opponent."
+    expect(page).to have_content "player_one attacked player_two!"
   end
 
   scenario 'attacking P2 reduced their HP' do
