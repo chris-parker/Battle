@@ -23,4 +23,12 @@ class Game
     @players
   end
 
+  def self.random
+    rand(1..2)
+  end
+
+  def self.game_over?
+    @player_1.dead? || @player_2.dead?
+  end
+
 end

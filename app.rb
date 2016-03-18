@@ -20,7 +20,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    redirect '/victory' if @game.player_2.dead?
+    redirect '/victory' if @game.game_over?
     erb(:home)
   end
 
